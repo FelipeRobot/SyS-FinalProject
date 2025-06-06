@@ -46,8 +46,7 @@ function playAudio(audioData, fs)
         disp(play_msg);
         msgbox(play_msg, 'Reproducción de audio', 'help');
         
-        player = audioplayer(audioData, fs);
-        play(player);
+        sound(audioData, fs);
         
     catch ME
         error_msg = sprintf('Error al reproducir el audio: %s', ME.message);
@@ -179,7 +178,7 @@ function filename = selectAudioFile()
         disp('Selección de archivo cancelada.');
         return;
     end
-    
+                            
     filename = fullfile(path, file);
     
     if ~exist(filename, 'file')
