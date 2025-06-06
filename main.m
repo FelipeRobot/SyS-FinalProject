@@ -97,7 +97,13 @@ end
 
 %% Main Analysis Function
 function analyzeAudio(filename)
-   
+
+     % Load audio file
+     [audioData, fs] = loadAudioFile(filename);
+    
+     % Get total duration
+     totalDuration = length(audioData)/fs;
+
     % Segment the signal into 1-second segments
     segmentDuration = 1; % seconds
     numSegments = floor(totalDuration / segmentDuration);
@@ -136,13 +142,6 @@ function mainStructure()
 
     filename = 'melody.wav';
     analyzeAudio(filename);
-
-     % Load audio file
-     [audioData, fs] = loadAudioFile(filename);
-    
-     % Get total duration
-     totalDuration = length(audioData)/fs;
-     
 
 
     while true
